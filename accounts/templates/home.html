@@ -1,0 +1,32 @@
+
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load staticfiles %}
+{% block body %}
+
+{% endblock %}
+
+{% block title %}
+    <h1 style="color:DodgerBlue;">try again? or join us? </h1>
+
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+    <p>you can go to home page by clicking here</p>
+       <a href="{% url 'blog_list' %}">home</a>
+    <p>you can logout by clicking here</p>
+       <a href="{% url 'logout' %}">logout</a>
+
+
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+  <p>you dont have account?</p>
+   <a href="{% url 'signup' %}">signup</a>
+{% endif %}
+{% endblock %}

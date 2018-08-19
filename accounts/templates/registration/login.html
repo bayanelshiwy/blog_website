@@ -1,0 +1,16 @@
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load staticfiles %}
+{% block body %}
+
+{% endblock %}
+
+<h2 style="color:DodgerBlue;">Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>

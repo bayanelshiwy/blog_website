@@ -1,0 +1,27 @@
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load staticfiles %}
+{% block content %}
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a style="color:DodgerBlue;" class="navbar-brand" href="{% url "blog_list" %}">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url "blog_new" %}">Create<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="{% url "signup" %}">SignUp</a>
+      <a class="nav-item nav-link" href="{% url "login" %}">Login</a>
+      <a class="nav-item nav-link disabled" href="{% url "logout" %}">LogOut</a>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+
+<h1 style="color:DodgerBlue;">Blog Details</h1>
+<h2>{{object.title}}</h2>
+ {{ object.body }}
+<h3>{{object.author}}</h3>
