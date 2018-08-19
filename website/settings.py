@@ -135,7 +135,5 @@ LOGOUT_REDIRECT_URL = 'home'
 
 django_heroku.settings(locals())
 
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
+
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
