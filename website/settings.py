@@ -80,12 +80,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-ENVIRONMENT = 'production'
-DEBUG = False
-ALLOWED_HOSTS = ['']
-DATABASES['default'] = dj_database_url.config(
-    default='postgres://qiogkdragrxecp:d858f99462987ac32819199f245d0a1cb4355ff9338f5db14c8a9f36769ff58a@ec2-54-83-13-119.compute-1.amazonaws.com:5432/d7k7bnavqfboui'
-)
+
 
 DATABASES = {
     'default': {
@@ -97,6 +92,10 @@ DATABASES = {
         'PORT': '8000',
     }
 }
+
+DATABASES = { 'default': dj_database_url.config() }
+export DATABASE_URL="postgres://user:pass@address:port/dbname"
+
 
 
 # Password validation
