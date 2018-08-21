@@ -94,7 +94,6 @@ DATABASES = {
 }
 
 DATABASES = { 'default': dj_database_url.config() }
-export DATABASE_URL="postgres://user:pass@address:port/dbname"
 
 
 
