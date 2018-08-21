@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import django_heroku
+from .base import
+import dj_database_url
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -77,6 +80,14 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
+ENVIRONMENT = 'production'
+DEBUG = False
+ALLOWED_HOSTS = ['']
+DATABASES['website'] = dj_database_url.config(
+    website='postgres://qiogkdragrxecp:d858f99462987ac32819199f245d0a1cb4355ff9338f5db14c8a9f36769ff58a@ec2-54-83-13-119.compute-1.amazonaws.com:5432/d7k7bnavqfboui'
+'
+)
 
 DATABASES = {
     'default': {
