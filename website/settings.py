@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +134,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+MEDIA_URL = '/media/'
+
+AWS_S3_ACCESS_KEY_ID = 'AKIAIIXZ46TSUGTVB4EA'
+AWS_S3_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'blog-static22'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 
 
 LOGIN_REDIRECT_URL = 'blog_list'

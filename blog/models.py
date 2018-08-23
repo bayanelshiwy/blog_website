@@ -9,6 +9,7 @@ class Blog(models.Model):
         User,
         on_delete=models.CASCADE,
     )
+    picture = models.ImageField(default="default.png")
 
 
     def __str__(self):
@@ -16,3 +17,7 @@ class Blog(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog_edit', kwargs={'pk': self.pk})
+
+
+
+

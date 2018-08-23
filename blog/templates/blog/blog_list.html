@@ -27,6 +27,7 @@
       <th scope="col">#</th>
       <th scope="col">Title</th>
       <th scope="col">Body</th>
+        <th scope="col">Picture</th>
       <th scope="col">View</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
@@ -40,6 +41,7 @@
     <td>{{ blog.id }}</td>
     <td>{{ blog.title }}</td>
     <td>{{ blog.body }}</td>
+    <td><img width="200px" src="https://s3.amazonaws.com/blog-static22/{{ blog.picture }}"></td>
     <td><a style="color:DodgerBlue;" href="{% url "blog_view" blog.id %}">view</a></td>
     <td><a style="color:DodgerBlue;" href="{% url "blog_edit" blog.id %}">edit</a></td>
     <td><a style="color:DodgerBlue;" href="{% url "blog_delete" blog.id %}">delete</a></td>

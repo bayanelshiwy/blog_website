@@ -21,9 +21,9 @@ class BlogList(LoginRequiredMixin, ListView):
 class BlogView(DetailView):
     model = Blog
 
-class BlogCreate(CreateView):
+class BlogCreate(LoginRequiredMixin, CreateView):
     model = Blog
-    fields = ['title', 'body','author']
+    fields = ['title', 'body','author', 'picture']
     success_url = reverse_lazy('blog_list')
 
 class BlogUpdate(UpdateView):
@@ -34,4 +34,17 @@ class BlogUpdate(UpdateView):
 class BlogDelete(DeleteView):
     model = Blog
     success_url = reverse_lazy('blog_list')
+
+def simple_upload(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'blog/blog_form.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'blog/blog_list.html.html')
+
+
 
