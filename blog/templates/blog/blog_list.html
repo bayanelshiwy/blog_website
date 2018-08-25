@@ -43,7 +43,7 @@
     <td><a style="color:DodgerBlue;" href="{% url "blog_view" blog.id %}">view</a></td>
     <td><a style="color:DodgerBlue;" href="{% url "blog_edit" blog.id %}">edit</a></td>
     <td><a style="color:DodgerBlue;" href="{% url "blog_delete" blog.id %}">delete</a></td>
-    <td>{{ blog.author }}</td>
+    <td>{{ user.username }}</td>
     </tr>
     {% endfor %}
 </tbody>
