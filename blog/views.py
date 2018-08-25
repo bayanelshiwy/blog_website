@@ -5,8 +5,6 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import admin
-
 
 
 
@@ -28,12 +26,9 @@ class BlogCreate(LoginRequiredMixin, CreateView):
     fields = ['title', 'body', 'picture']
     success_url = reverse_lazy('blog_list')
 
-
-
-
 class BlogUpdate(UpdateView):
     model = Blog
-    fields = ['title', 'body']
+    fields = ['title', 'body', 'picture']
     success_url = reverse_lazy('blog_list')
 
 class BlogDelete(DeleteView):
