@@ -4,13 +4,16 @@
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
 {% load staticfiles %}
+<section style="background-color:hsl(0, 0%, 47%);">
+
 {% block body %}
 
 {% endblock %}
 
-<h2 style="color:DodgerBlue;">Login</h2>
+<h2 style="color:rgb(255,223,0);">Login</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Login</button>
 </form>
+</section>

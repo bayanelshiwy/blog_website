@@ -5,12 +5,14 @@
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
 {% load staticfiles %}
+<section style="background-color:hsl(0, 0%, 47%);">
+
 {% block body %}
 
 {% endblock %}
 
 {% block title %}
-    <h1 style="color:DodgerBlue;">try again? or join us? </h1>
+    <h1 style="color:rgb(255,223,0);"">try again? or join us? </h1>
 
 {% endblock %}
 
@@ -25,8 +27,9 @@
 
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <a style="color:rgb(255,223,0);" href="{% url 'login' %}">login</a>
   <p>you dont have account?</p>
-   <a href="{% url 'signup' %}">signup</a>
+   <a style="color:rgb(255,223,0);" href="{% url 'signup' %}">signup</a>
 {% endif %}
 {% endblock %}
+</section>
